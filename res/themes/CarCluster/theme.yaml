@@ -1,0 +1,215 @@
+# CarCluster — car instrument cluster in landscape: twin dials with redline/low-zone,
+# center TFT panel, warning-light strip
+# Requires the BatteryLevel, CurrentUser, OsName and FanRpm custom sensors
+# in library/sensors/sensors_custom.py
+---
+author: "Casey Hartman"
+
+display:
+  DISPLAY_SIZE: 3.5"
+  DISPLAY_ORIENTATION: landscape
+  DISPLAY_RGB_LED: 140, 190, 235
+
+static_images:
+  BACKGROUND:
+    PATH: background.png
+    X: 0
+    Y: 0
+    WIDTH: 480
+    HEIGHT: 320
+
+STATS:
+  CPU:
+    PERCENTAGE:
+      INTERVAL: 2
+      RADIAL:
+        SHOW: True
+        X: 100
+        Y: 155
+        RADIUS: 75
+        WIDTH: 10
+        MIN_VALUE: 0
+        MAX_VALUE: 100
+        ANGLE_START: 135
+        ANGLE_END: 45
+        ANGLE_STEPS: 30
+        ANGLE_SEP: 2
+        CLOCKWISE: True
+        DRAW_BAR_BACKGROUND: True
+        BAR_BACKGROUND_COLOR: 35, 50, 65
+        BAR_COLOR: 140, 190, 235
+        SHOW_TEXT: True
+        SHOW_UNIT: True
+        FONT: jetbrains-mono/JetBrainsMono-ExtraBold.ttf
+        FONT_SIZE: 30
+        FONT_COLOR: 228, 234, 240
+        BACKGROUND_IMAGE: background.png
+    TEMPERATURE:
+      INTERVAL: 5
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        MIN_SIZE: 1
+        FAHRENHEIT: True
+        X: 280
+        Y: 97
+        FONT: jetbrains-mono/JetBrainsMono-Medium.ttf
+        FONT_SIZE: 11
+        FONT_COLOR: 228, 234, 240
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: ra
+    FAN_SPEED:
+      INTERVAL: 5
+      TEXT:
+        SHOW: False
+  MEMORY:
+    INTERVAL: 5
+    VIRTUAL:
+      RADIAL:
+        SHOW: True
+        X: 380
+        Y: 155
+        RADIUS: 75
+        WIDTH: 10
+        MIN_VALUE: 0
+        MAX_VALUE: 100
+        ANGLE_START: 135
+        ANGLE_END: 45
+        ANGLE_STEPS: 30
+        ANGLE_SEP: 2
+        CLOCKWISE: True
+        DRAW_BAR_BACKGROUND: True
+        BAR_BACKGROUND_COLOR: 35, 50, 65
+        BAR_COLOR: 140, 190, 235
+        SHOW_TEXT: True
+        SHOW_UNIT: True
+        FONT: jetbrains-mono/JetBrainsMono-ExtraBold.ttf
+        FONT_SIZE: 30
+        FONT_COLOR: 228, 234, 240
+        BACKGROUND_IMAGE: background.png
+  DISK:
+    INTERVAL: 10
+    USED:
+      PERCENT_TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        MIN_SIZE: 1
+        X: 280
+        Y: 157
+        FONT: jetbrains-mono/JetBrainsMono-Medium.ttf
+        FONT_SIZE: 11
+        FONT_COLOR: 228, 234, 240
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: ra
+  NET:
+    INTERVAL: 2
+    WLO:
+      DOWNLOAD:
+        TEXT:
+          SHOW: True
+          SHOW_UNIT: True
+          MIN_SIZE: 10
+          X: 280
+          Y: 187
+          FONT: jetbrains-mono/JetBrainsMono-Medium.ttf
+          FONT_SIZE: 11
+          FONT_COLOR: 150, 175, 205
+          BACKGROUND_IMAGE: background.png
+          ANCHOR: ra
+      UPLOAD:
+        TEXT:
+          SHOW: True
+          SHOW_UNIT: True
+          MIN_SIZE: 10
+          X: 150
+          Y: 297
+          FONT: jetbrains-mono/JetBrainsMono-Medium.ttf
+          FONT_SIZE: 11
+          FONT_COLOR: 150, 175, 205
+          BACKGROUND_IMAGE: background.png
+          ANCHOR: lm
+  DATE:
+    INTERVAL: 1
+    DAY:
+      TEXT:
+        SHOW: True
+        FORMAT: "EEE, MMM d"
+        X: 16
+        Y: 297
+        FONT: jetbrains-mono/JetBrainsMono-Medium.ttf
+        FONT_SIZE: 11
+        FONT_COLOR: 150, 175, 205
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: lm
+    HOUR:
+      TEXT:
+        SHOW: True
+        X: 464
+        Y: 297
+        FONT: jetbrains-mono/JetBrainsMono-ExtraBold.ttf
+        FONT_SIZE: 13
+        FONT_COLOR: 228, 234, 240
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: rm
+  CUSTOM:
+    INTERVAL: 2
+    CurrentUser:
+      TEXT:
+        SHOW: True
+        X: 16
+        Y: 20
+        FONT: jetbrains-mono/JetBrainsMono-Medium.ttf
+        FONT_SIZE: 11
+        FONT_COLOR: 150, 175, 205
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: lm
+    OsName:
+      TEXT:
+        SHOW: True
+        X: 240
+        Y: 58
+        FONT: jetbrains-mono/JetBrainsMono-ExtraBold.ttf
+        FONT_SIZE: 12
+        FONT_COLOR: 185, 200, 215
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: mm
+    BatteryLevel:
+      TEXT:
+        SHOW: True
+        X: 464
+        Y: 20
+        FONT: jetbrains-mono/JetBrainsMono-ExtraBold.ttf
+        FONT_SIZE: 11
+        FONT_COLOR: 228, 234, 240
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: rm
+    FanRpm:
+      TEXT:
+        SHOW: True
+        X: 280
+        Y: 127
+        FONT: jetbrains-mono/JetBrainsMono-Medium.ttf
+        FONT_SIZE: 11
+        FONT_COLOR: 228, 234, 240
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: ra
+    BlinkLeft:
+      TEXT:
+        SHOW: True
+        X: 26
+        Y: 50
+        FONT: jetbrains-mono/JetBrainsMono-ExtraBold.ttf
+        FONT_SIZE: 20
+        FONT_COLOR: 0, 255, 140
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: lm
+    BlinkRight:
+      TEXT:
+        SHOW: True
+        X: 454
+        Y: 50
+        FONT: jetbrains-mono/JetBrainsMono-ExtraBold.ttf
+        FONT_SIZE: 20
+        FONT_COLOR: 0, 255, 140
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: rm

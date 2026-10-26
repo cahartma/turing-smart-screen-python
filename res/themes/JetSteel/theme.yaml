@@ -1,0 +1,201 @@
+# JetSteel — fighter-jet HUD variant of JetHUD
+# Requires the BatteryLevel, CurrentUser, OsName, FanRpm and WifiSignal custom sensors
+# in library/sensors/sensors_custom.py
+---
+author: "Casey Hartman"
+
+display:
+  DISPLAY_SIZE: 3.5"
+  DISPLAY_ORIENTATION: portrait
+  DISPLAY_RGB_LED: 120, 180, 255
+
+static_images:
+  BACKGROUND:
+    PATH: background.png
+    X: 0
+    Y: 0
+    WIDTH: 320
+    HEIGHT: 480
+
+STATS:
+  CPU:
+    PERCENTAGE:
+      INTERVAL: 2
+      RADIAL:
+        SHOW: True
+        X: 160
+        Y: 210
+        RADIUS: 70
+        WIDTH: 10
+        MIN_VALUE: 0
+        MAX_VALUE: 100
+        ANGLE_START: 135
+        ANGLE_END: 45
+        ANGLE_STEPS: 30
+        ANGLE_SEP: 2
+        CLOCKWISE: True
+        DRAW_BAR_BACKGROUND: True
+        BAR_BACKGROUND_COLOR: 36, 56, 86
+        BAR_COLOR: 120, 180, 255
+        SHOW_TEXT: True
+        SHOW_UNIT: True
+        FONT: jetbrains-mono/JetBrainsMono-ExtraBold.ttf
+        FONT_SIZE: 20
+        FONT_COLOR: 225, 232, 242
+        BACKGROUND_IMAGE: background.png
+    TEMPERATURE:
+      INTERVAL: 5
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        MIN_SIZE: 1
+        FAHRENHEIT: True
+        X: 160
+        Y: 50
+        FONT: jetbrains-mono/JetBrainsMono-Medium.ttf
+        FONT_SIZE: 12
+        FONT_COLOR: 225, 232, 242
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: mm
+    FAN_SPEED:
+      INTERVAL: 5
+      TEXT:
+        SHOW: False
+  MEMORY:
+    INTERVAL: 5
+    VIRTUAL:
+      PERCENT_TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        MIN_SIZE: 1
+        X: 62
+        Y: 212
+        FONT: jetbrains-mono/JetBrainsMono-ExtraBold.ttf
+        FONT_SIZE: 18
+        FONT_COLOR: 225, 232, 242
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: mm
+  DISK:
+    INTERVAL: 10
+    USED:
+      PERCENT_TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        MIN_SIZE: 1
+        X: 258
+        Y: 212
+        FONT: jetbrains-mono/JetBrainsMono-ExtraBold.ttf
+        FONT_SIZE: 18
+        FONT_COLOR: 225, 232, 242
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: mm
+  NET:
+    INTERVAL: 2
+    WLO:
+      DOWNLOAD:
+        TEXT:
+          SHOW: False
+        LINE_GRAPH:
+          SHOW: True
+          X: 40
+          Y: 306
+          WIDTH: 240
+          HEIGHT: 38
+          MIN_VALUE: 0
+          MAX_VALUE: 10000000
+          AUTOSCALE: False
+          LINE_COLOR: 120, 180, 255
+          LINE_WIDTH: 1
+          AXIS: False
+          BACKGROUND_IMAGE: background.png
+      UPLOAD:
+        TEXT:
+          SHOW: False
+        LINE_GRAPH:
+          SHOW: True
+          X: 40
+          Y: 352
+          WIDTH: 240
+          HEIGHT: 38
+          MIN_VALUE: 0
+          MAX_VALUE: 10000000
+          AUTOSCALE: False
+          LINE_COLOR: 120, 180, 255
+          LINE_WIDTH: 1
+          AXIS: False
+          BACKGROUND_IMAGE: background.png
+  DATE:
+    INTERVAL: 1
+    HOUR:
+      TEXT:
+        SHOW: True
+        X: 304
+        Y: 462
+        FONT: jetbrains-mono/JetBrainsMono-Medium.ttf
+        FONT_SIZE: 13
+        FONT_COLOR: 225, 232, 242
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: rm
+    DAY:
+      TEXT:
+        SHOW: True
+        FORMAT: "EEE, MMM d"
+        X: 16
+        Y: 462
+        FONT: jetbrains-mono/JetBrainsMono-Medium.ttf
+        FONT_SIZE: 12
+        FONT_COLOR: 105, 120, 145
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: lm
+  CUSTOM:
+    INTERVAL: 5
+    CurrentUser:
+      TEXT:
+        SHOW: True
+        X: 16
+        Y: 18
+        FONT: jetbrains-mono/JetBrainsMono-Medium.ttf
+        FONT_SIZE: 11
+        FONT_COLOR: 105, 120, 145
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: lm
+    OsName:
+      TEXT:
+        SHOW: True
+        X: 304
+        Y: 18
+        FONT: jetbrains-mono/JetBrainsMono-Medium.ttf
+        FONT_SIZE: 11
+        FONT_COLOR: 105, 120, 145
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: rm
+    BatteryLevel:
+      TEXT:
+        SHOW: True
+        X: 220
+        Y: 434
+        FONT: jetbrains-mono/JetBrainsMono-Medium.ttf
+        FONT_SIZE: 12
+        FONT_COLOR: 225, 232, 242
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: lm
+    FanRpm:
+      TEXT:
+        SHOW: True
+        X: 16
+        Y: 434
+        FONT: jetbrains-mono/JetBrainsMono-Medium.ttf
+        FONT_SIZE: 12
+        FONT_COLOR: 225, 232, 242
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: lm
+    WifiSignal:
+      TEXT:
+        SHOW: True
+        X: 120
+        Y: 434
+        FONT: jetbrains-mono/JetBrainsMono-Medium.ttf
+        FONT_SIZE: 12
+        FONT_COLOR: 225, 232, 242
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: lm

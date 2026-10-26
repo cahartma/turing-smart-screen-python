@@ -1,0 +1,260 @@
+# ThinkPad HUD — near-black minimal theme on the v2 layout, ThinkPad-red accents
+# Requires the BatteryLevel and CurrentUser custom sensors in library/sensors/sensors_custom.py
+---
+author: "Casey Hartman"
+
+display:
+  DISPLAY_SIZE: 3.5"
+  DISPLAY_ORIENTATION: portrait
+  DISPLAY_RGB_LED: 229, 55, 43
+
+static_images:
+  BACKGROUND:
+    PATH: background.png
+    X: 0
+    Y: 0
+    WIDTH: 320
+    HEIGHT: 480
+
+STATS:
+  CPU:
+    PERCENTAGE:
+      INTERVAL: 2
+      RADIAL:
+        SHOW: True
+        X: 100
+        Y: 126
+        RADIUS: 48
+        WIDTH: 10
+        MIN_VALUE: 0
+        MAX_VALUE: 100
+        ANGLE_START: 135
+        ANGLE_END: 45
+        ANGLE_STEPS: 27
+        ANGLE_SEP: 2
+        CLOCKWISE: True
+        DRAW_BAR_BACKGROUND: True
+        BAR_BACKGROUND_COLOR: 82, 26, 24
+        BAR_COLOR: 229, 55, 43
+        SHOW_TEXT: True
+        SHOW_UNIT: True
+        FONT: jetbrains-mono/JetBrainsMono-ExtraBold.ttf
+        FONT_SIZE: 24
+        FONT_COLOR: 235, 235, 237
+        BACKGROUND_IMAGE: background.png
+    TEMPERATURE:
+      INTERVAL: 5
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        MIN_SIZE: 1
+        FAHRENHEIT: True
+        X: 178
+        Y: 115
+        FONT: jetbrains-mono/JetBrainsMono-ExtraBold.ttf
+        FONT_SIZE: 22
+        FONT_COLOR: 235, 235, 237
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: lm
+    FAN_SPEED:
+      INTERVAL: 5
+      TEXT:
+        SHOW: False
+        SHOW_UNIT: True
+        X: 170
+        Y: 167
+        FONT: jetbrains-mono/JetBrainsMono-ExtraBold.ttf
+        FONT_SIZE: 22
+        FONT_COLOR: 235, 235, 237
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: lm
+  MEMORY:
+    INTERVAL: 5
+    VIRTUAL:
+      USED:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 38
+        Y: 268
+        MIN_SIZE: 1
+        SCALE: 1024
+        DECIMALS: 2
+        UNIT: " GB"
+        FONT: jetbrains-mono/JetBrainsMono-ExtraBold.ttf
+        FONT_SIZE: 34
+        FONT_COLOR: 235, 235, 237
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: lm
+      PERCENT_TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 290
+        Y: 240
+        FONT: jetbrains-mono/JetBrainsMono-ExtraBold.ttf
+        FONT_SIZE: 15
+        FONT_COLOR: 166, 110, 112
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: ra
+      TOTAL:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 290
+        Y: 272
+        MIN_SIZE: 3
+        SCALE: 1024
+        DECIMALS: 1
+        UNIT: " GB"
+        FONT: jetbrains-mono/JetBrainsMono-Medium.ttf
+        FONT_SIZE: 13
+        FONT_COLOR: 166, 110, 112
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: ra
+      GRAPH:
+        SHOW: True
+        X: 30
+        Y: 298
+        WIDTH: 260
+        HEIGHT: 10
+        MIN_VALUE: 0
+        MAX_VALUE: 100
+        BAR_COLOR: 229, 55, 43
+        BAR_OUTLINE: False
+        BACKGROUND_IMAGE: background.png
+  DISK:
+    INTERVAL: 10
+    USED:
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        MIN_SIZE: 1
+        X: 38
+        Y: 396
+        FONT: jetbrains-mono/JetBrainsMono-ExtraBold.ttf
+        FONT_SIZE: 34
+        FONT_COLOR: 235, 235, 237
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: lm
+      PERCENT_TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 290
+        Y: 372
+        FONT: jetbrains-mono/JetBrainsMono-ExtraBold.ttf
+        FONT_SIZE: 15
+        FONT_COLOR: 166, 110, 112
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: ra
+      GRAPH:
+        SHOW: True
+        X: 30
+        Y: 420
+        WIDTH: 260
+        HEIGHT: 10
+        MIN_VALUE: 0
+        MAX_VALUE: 100
+        BAR_COLOR: 229, 55, 43
+        BAR_OUTLINE: False
+        BACKGROUND_IMAGE: background.png
+    TOTAL:
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 290
+        Y: 400
+        FONT: jetbrains-mono/JetBrainsMono-Medium.ttf
+        FONT_SIZE: 13
+        FONT_COLOR: 166, 110, 112
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: ra
+  NET:
+    INTERVAL: 2
+    WLO:
+      UPLOAD:
+        TEXT:
+          SHOW: True
+          SHOW_UNIT: True
+          MIN_SIZE: 11
+          X: 36
+          Y: 467
+          FONT: jetbrains-mono/JetBrainsMono-Medium.ttf
+          FONT_SIZE: 13
+          FONT_COLOR: 166, 110, 112
+          BACKGROUND_IMAGE: background.png
+          ANCHOR: lm
+      DOWNLOAD:
+        TEXT:
+          SHOW: True
+          SHOW_UNIT: True
+          MIN_SIZE: 11
+          X: 128
+          Y: 467
+          FONT: jetbrains-mono/JetBrainsMono-Medium.ttf
+          FONT_SIZE: 13
+          FONT_COLOR: 166, 110, 112
+          BACKGROUND_IMAGE: background.png
+          ANCHOR: lm
+  DATE:
+    INTERVAL: 1
+    HOUR:
+      TEXT:
+        SHOW: True
+        X: 304
+        Y: 467
+        FONT: jetbrains-mono/JetBrainsMono-ExtraBold.ttf
+        FONT_SIZE: 13
+        FONT_COLOR: 235, 235, 237
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: rm
+  CUSTOM:
+    INTERVAL: 5
+    CurrentUser:
+      TEXT:
+        SHOW: True
+        X: 16
+        Y: 25
+        FONT: jetbrains-mono/JetBrainsMono-Medium.ttf
+        FONT_SIZE: 11
+        FONT_COLOR: 166, 110, 112
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: lm
+    OsName:
+      TEXT:
+        SHOW: True
+        X: 160
+        Y: 25
+        FONT: jetbrains-mono/JetBrainsMono-ExtraBold.ttf
+        FONT_SIZE: 16
+        FONT_COLOR: 235, 235, 237
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: mm
+    BatteryLevel:
+      TEXT:
+        SHOW: True
+        X: 304
+        Y: 25
+        FONT: jetbrains-mono/JetBrainsMono-ExtraBold.ttf
+        FONT_SIZE: 11
+        FONT_COLOR: 235, 235, 237
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: rm
+    FanRpm:
+      TEXT:
+        SHOW: True
+        X: 178
+        Y: 167
+        FONT: jetbrains-mono/JetBrainsMono-ExtraBold.ttf
+        FONT_SIZE: 22
+        FONT_COLOR: 235, 235, 237
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: lm
+
+    CpuTempCelsius:
+      TEXT:
+        SHOW: True
+        X: 252
+        Y: 115
+        FONT: jetbrains-mono/JetBrainsMono-Medium.ttf
+        FONT_SIZE: 12
+        FONT_COLOR: 166, 110, 112
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: lm

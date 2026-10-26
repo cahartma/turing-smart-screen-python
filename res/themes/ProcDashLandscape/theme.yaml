@@ -1,0 +1,181 @@
+# ProcDashLandscape — wide ps-style process table: PID USER CPU% MEM% COMMAND
+# Requires the BatteryLevel, CurrentUser, OsName, ProcessCount and TopProcWide1-8
+# custom sensors in library/sensors/sensors_custom.py
+---
+author: "Casey Hartman"
+
+display:
+  DISPLAY_SIZE: 3.5"
+  DISPLAY_ORIENTATION: landscape
+  DISPLAY_RGB_LED: 0, 255, 140
+
+static_images:
+  BACKGROUND:
+    PATH: background.png
+    X: 0
+    Y: 0
+    WIDTH: 480
+    HEIGHT: 320
+
+STATS:
+  CPU:
+    PERCENTAGE:
+      INTERVAL: 2
+      TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        MIN_SIZE: 1
+        X: 140
+        Y: 300
+        FONT: jetbrains-mono/JetBrainsMono-Medium.ttf
+        FONT_SIZE: 12
+        FONT_COLOR: 190, 235, 205
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: lm
+  MEMORY:
+    INTERVAL: 5
+    VIRTUAL:
+      PERCENT_TEXT:
+        SHOW: True
+        SHOW_UNIT: True
+        X: 230
+        Y: 300
+        FONT: jetbrains-mono/JetBrainsMono-Medium.ttf
+        FONT_SIZE: 12
+        FONT_COLOR: 190, 235, 205
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: lm
+  DATE:
+    INTERVAL: 1
+    HOUR:
+      TEXT:
+        SHOW: True
+        X: 464
+        Y: 300
+        FONT: jetbrains-mono/JetBrainsMono-Medium.ttf
+        FONT_SIZE: 13
+        FONT_COLOR: 190, 235, 205
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: rm
+  CUSTOM:
+    INTERVAL: 2
+    CurrentUser:
+      TEXT:
+        SHOW: True
+        X: 16
+        Y: 18
+        FONT: jetbrains-mono/JetBrainsMono-Medium.ttf
+        FONT_SIZE: 11
+        FONT_COLOR: 140, 190, 155
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: lm
+    OsName:
+      TEXT:
+        SHOW: True
+        X: 240
+        Y: 18
+        FONT: jetbrains-mono/JetBrainsMono-Medium.ttf
+        FONT_SIZE: 11
+        FONT_COLOR: 140, 190, 155
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: mm
+    BatteryLevel:
+      TEXT:
+        SHOW: True
+        X: 464
+        Y: 18
+        FONT: jetbrains-mono/JetBrainsMono-Medium.ttf
+        FONT_SIZE: 11
+        FONT_COLOR: 190, 235, 205
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: rm
+    ProcessCount:
+      TEXT:
+        SHOW: True
+        X: 60
+        Y: 300
+        FONT: jetbrains-mono/JetBrainsMono-Medium.ttf
+        FONT_SIZE: 12
+        FONT_COLOR: 190, 235, 205
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: lm
+    TopProcWide1:
+      TEXT:
+        SHOW: True
+        X: 40
+        Y: 64
+        FONT: jetbrains-mono/JetBrainsMono-Medium.ttf
+        FONT_SIZE: 13
+        FONT_COLOR: 190, 235, 205
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: lm
+    TopProcWide2:
+      TEXT:
+        SHOW: True
+        X: 40
+        Y: 92
+        FONT: jetbrains-mono/JetBrainsMono-Medium.ttf
+        FONT_SIZE: 13
+        FONT_COLOR: 190, 235, 205
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: lm
+    TopProcWide3:
+      TEXT:
+        SHOW: True
+        X: 40
+        Y: 120
+        FONT: jetbrains-mono/JetBrainsMono-Medium.ttf
+        FONT_SIZE: 13
+        FONT_COLOR: 190, 235, 205
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: lm
+    TopProcWide4:
+      TEXT:
+        SHOW: True
+        X: 40
+        Y: 148
+        FONT: jetbrains-mono/JetBrainsMono-Medium.ttf
+        FONT_SIZE: 13
+        FONT_COLOR: 190, 235, 205
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: lm
+    TopProcWide5:
+      TEXT:
+        SHOW: True
+        X: 40
+        Y: 176
+        FONT: jetbrains-mono/JetBrainsMono-Medium.ttf
+        FONT_SIZE: 13
+        FONT_COLOR: 190, 235, 205
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: lm
+    TopProcWide6:
+      TEXT:
+        SHOW: True
+        X: 40
+        Y: 204
+        FONT: jetbrains-mono/JetBrainsMono-Medium.ttf
+        FONT_SIZE: 13
+        FONT_COLOR: 190, 235, 205
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: lm
+    TopProcWide7:
+      TEXT:
+        SHOW: True
+        X: 40
+        Y: 232
+        FONT: jetbrains-mono/JetBrainsMono-Medium.ttf
+        FONT_SIZE: 13
+        FONT_COLOR: 190, 235, 205
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: lm
+    TopProcWide8:
+      TEXT:
+        SHOW: True
+        X: 40
+        Y: 260
+        FONT: jetbrains-mono/JetBrainsMono-Medium.ttf
+        FONT_SIZE: 13
+        FONT_COLOR: 190, 235, 205
+        BACKGROUND_IMAGE: background.png
+        ANCHOR: lm
