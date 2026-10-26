@@ -210,10 +210,12 @@ class LcdCommRevA(LcdComm):
 
         rgb565le = image_to_RGB565(image, "little")
 
-        self.SendCommand(Command.DISPLAY_BITMAP, x0, y0, x1, y1)
-
-        # Lock queue mutex then queue all the requests for the image data
+        # Lock queue mutex then queue all the requests for the image: the header and the data must be queued
+        # atomically, otherwise another thread's bitmap transfer can be queued in-between and its header would
+        # make the display write our data at the wrong position (garbled screen)
         with self.update_queue_mutex:
+            self.SendCommand(Command.DISPLAY_BITMAP, x0, y0, x1, y1)
+
             # Send image data by multiple of "display width" bytes
             for chunk in chunked(rgb565le, width * 8):
                 self.SendLine(chunk)
