@@ -103,7 +103,7 @@ def sensors_fans():
                 min_rpm = int(bcat(base + '_min'))
             except:
                 min_rpm = 0  # Approximated: min fan speed is 0 RPM
-            percent = int((current_rpm - min_rpm) / (max_rpm - min_rpm) * 100)
+            percent = min(100, int((current_rpm - min_rpm) / (max_rpm - min_rpm) * 100))
         except (IOError, OSError) as err:
             continue
         unit_name = cat(os.path.join(os.path.dirname(base), 'name')).strip()

@@ -101,7 +101,21 @@ def display_themed_value(theme_data, value, min_size=0, unit=''):
     # overridable MIN_SIZE from theme with backward compatibility
     min_size = theme_data.get("MIN_SIZE", min_size)
 
-    text = f"{{:>{min_size}}}".format(value)
+    # Overridable unit and value scaling from theme (e.g. display a MB value as GB)
+    unit = theme_data.get("UNIT", unit)
+    scale = theme_data.get("SCALE", 1)
+    decimals = theme_data.get("DECIMALS", None)
+    if scale != 1 and isinstance(value, (int, float)):
+        value = value / scale
+        if decimals is None:
+            value = int(value)
+
+    # Overridable number of decimals from theme (e.g. "15.9" instead of "15")
+    decimals = theme_data.get("DECIMALS", None)
+    if decimals is not None and isinstance(value, (int, float)):
+        text = f"{{:>{min_size}.{decimals}f}}".format(value)
+    else:
+        text = f"{{:>{min_size}}}".format(value)
     if theme_data.get("SHOW_UNIT", True) and unit:
         text += str(unit)
 
@@ -131,11 +145,17 @@ def display_themed_percent_value(theme_data, value):
 
 
 def display_themed_temperature_value(theme_data, value):
+    # Temperature is always read in Celsius; theme can request Fahrenheit display
+    if theme_data.get("FAHRENHEIT", False) and value is not None:
+        value = value * 9 / 5 + 32
+        unit = "°F"
+    else:
+        unit = "°C"
     display_themed_value(
         theme_data=theme_data,
         value=int(value),
         min_size=3,
-        unit="°C"
+        unit=unit
     )
 
 
@@ -170,6 +190,8 @@ def display_themed_radial_bar(theme_data, value, min_size=0, unit='', custom_tex
             text = f"{{:>{min_size}}}".format(value)
             if theme_data.get("SHOW_UNIT", True) and unit:
                 text += str(unit)
+        # Strip padding so the visible digits are centered in the radial
+        text = text.strip()
     else:
         text = ""
 
@@ -724,7 +746,7 @@ class Net:
     def _show_themed_total_data(theme_data, amount):
         display_themed_value(
             theme_data=theme_data,
-            value=f"{bytes2human(amount)}",
+            value=f"{bytes2human(amount, '%(value).1f %(symbol)s')}",
             min_size=6
         )
 

@@ -314,6 +314,10 @@ class LcdComm(ABC):
             left, top = math.floor(left), math.floor(top)
             right, bottom = math.ceil(right), math.ceil(bottom)
 
+            # Blank text (no ink, e.g. a lone space): nothing to draw
+            if right <= left or bottom <= top:
+                return
+
             # Union with the area drawn last time at this same origin, so a new value that is narrower/shorter
             # than the previous one still gets its old pixels repainted with the background (prevents ghosting
             # of stale glyph fragments, independent of font metrics).
